@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": "airbnb-base",
+  "overrides": [],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "eslint-disable quotes": "off",
+    "eslint-disable no-empty-function": "off",
+    "eslint-disable indent": "off",
+    "eslint-disable object-curly-spacing": "off",
+    "eslint-disable no-console": "off",
+    "eslint-disable no-underscore-dangle": "off",
+    "eslint-disable semi": "off"
+  }
+}
