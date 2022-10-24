@@ -9,7 +9,8 @@
     "test": "karma start",
     "serve": "http-server dist",
     "e2e": "codeceptjs run --steps",
-    "build-image": "node sharp.js"
+    "build-image": "node sharp.js",
+    "build-all": "npm run build & npm run build-image"
   },
   "keywords": [],
   "author": "Riko Airlan Ramadhan",
@@ -42,6 +43,7 @@
     "karma-jasmine": "^4.0.2",
     "karma-sourcemap-loader": "^0.3.8",
     "karma-webpack": "^5.0.0",
+    "mini-css-extract-plugin": "^2.6.1",
     "puppeteer": "^19.0.0",
     "sharp": "^0.31.1",
     "style-loader": "^3.3.1",
