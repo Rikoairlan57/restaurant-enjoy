@@ -1,16 +1,25 @@
-/* eslint-disable no-console */
+/* eslint-disable comma-dangle */
 /* eslint-disable quotes */
-const swRegister = async () => {
-  if (!("serviceWorker" in navigator)) {
-    console.log("Service Worker not supported in the browser");
-    return;
-  }
+/* eslint-disable no-console */
+import { Workbox } from "workbox-window";
 
-  try {
-    await navigator.serviceWorker.register("./sw.bundle.js");
-    console.log("Service worker registered");
-  } catch (error) {
-    console.log("Failed to register service worker", error);
+const swRegister = () => {
+  if ("serviceWorker" in navigator) {
+    const workBox = new Workbox("./sw.js");
+
+    workBox.addEventListener("waiting", () => {
+      console.log(
+        "A new service worker has installed, but it can't activate until all tabs running the current version have fully unloaded."
+      );
+    });
+
+    workBox.addEventListener("activated", (event) => {
+      if (!event.isUpdate) {
+        console.log("Service worker activated for the first time!");
+      }
+    });
+
+    workBox.register();
   }
 };
 
